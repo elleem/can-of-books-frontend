@@ -17,7 +17,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "get", // get is default behavior
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: "/books",
       };
 
