@@ -5,10 +5,11 @@
 **Version**: 1.0.0 
 
 ## Overview
+[Visit our site on Netlify here](https://canbooksdb.netlify.app/)
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. This app will track what books have impacted you, and what's recommended to read next.
 
 ## Getting Started
-https://trello.com/b/wz1nCUv0/can-of-books
+[Check out the Code Fellows guide to getting started here](https://trello.com/b/wz1nCUv0/can-of-books)
 
 ## Architecture
 JavaScript, React, Bootstrap, Node.js
@@ -16,51 +17,51 @@ JavaScript, React, Bootstrap, Node.js
 ## Change Log
 <ul>
 <li>Initial setup: 8/20/2022</li>
+<li> Add Storage: 8/20/2022</li>
+<li> Add book component: 8/20/2022 </li>
 <li> </li>
 <li>  </li>
 <li> </li>
-<li>  </li>
-<li> 
 <li>  </li>
 <li> </li>
 </ul>
 
 ## Estimates
-Name of feature: ________________________________
+Name of feature: Initial setup
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 1pm 
 
-Finish time: _____
+Finish time: 2pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour
 ######################################################
 
-Name of feature: ________________________________
+Name of feature: Add Storage
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 2pm
 
-Finish time: _____
+Finish time: 4pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hours
 ######################################################
 
-Name of feature: ________________________________
+Name of feature: Add book component
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 4pm
 
-Finish time: _____
+Finish time: 6:30pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour and 15 minutes
 ######################################################
 
 ## Collaborations
-created by Alejandro, Daniel, and Lauren 
+created by Alejandro, Daniel, and Lauren
 
 ## Logistical
 What hours will you be available to communicate?
