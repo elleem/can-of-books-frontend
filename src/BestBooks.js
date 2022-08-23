@@ -49,9 +49,9 @@ class BestBooks extends React.Component {
               />
               <Carousel.Caption>
                 <>
-                  <p>title={book.title}</p>
-                  <p>description={book.description}</p>
-                  <p>status={book.status}</p>
+                  <p>title {book.title}</p>
+                  <p>description {book.description}</p>
+                  <p>status {book.status}</p>
                 </>
               </Carousel.Caption>
             </Carousel.Item>
