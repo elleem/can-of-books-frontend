@@ -18,7 +18,7 @@ class BestBooks extends React.Component {
       const config = {
         method: "get", // get is default behavior
         baseURL: process.env.REACT_APP_HEROKU,
-        url: "/book",
+        url: "/books",
       };
 
       const response = await axios(config);
