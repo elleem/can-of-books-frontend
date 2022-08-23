@@ -18,14 +18,14 @@ class BestBooks extends React.Component {
       const config = {
         method: "get", // get is default behavior
         baseURL: process.env.REACT_APP_HEROKU,
-        url: "/books",
+        url: "/book",
       };
 
       const response = await axios(config);
       console.log(response.data);
       this.setState({ books: response.data });
     } catch (error) {
-      console.error("Error is in the componentDidMount Function: ", error);
+      console.error("Error is in the componentDidMount Function: ", error.response);
       // axios sends more info about the error in a response object on the error
       this.setState({
         errorMessage: `Status Code ${error.response.status}: ${error.response.data}`,
@@ -57,7 +57,10 @@ class BestBooks extends React.Component {
             </Carousel.Item>
           ))
         ) : (
-          <h3>No books found! Error: {this.state.errorMessage}</h3>
+          this.state.errorMessage ? 
+          <h3>{this.state.errorMessage}</h3>
+          :
+          <h3>No books found! </h3>
         )}
       </Carousel>
     );
