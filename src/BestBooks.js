@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
+import Container from "react-bootstrap/Container";
+
 
 
 class BestBooks extends React.Component {
@@ -9,6 +11,7 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
       errorMessage: "",
+      showForm: false
     };
   }
 
@@ -33,11 +36,32 @@ class BestBooks extends React.Component {
     }
   };
 
+  handleCreateBook = async (createBook) =>{
+    try{
+      const config = {
+        method: 'post',
+        baseURL: process.env.REACT_APP_HEROKU,
+        url: '/books',
+        data: createBook
+      };
+      const response = await axios(config);
+      console.log(response.data);
+      this.setState({ books: [...this.state.books, response.data] });
+      console.log(this.state.books); 
+    } catch(error){
+      console.error ('error in the handleCreateBook function: ', error); 
+      this.setState({ errorMessage: `Status Code ${error.response.status}: ${error.response.data}`});
+    }
+  }
+
   render() {
     /* TODO: render all the books in a Carousel */
 
     return (
+      <Container>
+      <button onClick={() => this.setState({ showForm: true })}>Add a New Book</button>
       <Carousel>
+        
         {this.state.books.length ? (
           this.state.books.map((book) => (
             <Carousel.Item key={book._id}>
@@ -63,6 +87,7 @@ class BestBooks extends React.Component {
           <h3>No books found! </h3>
         )}
       </Carousel>
+      </Container>
     );
   }
 }
