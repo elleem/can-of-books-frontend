@@ -1,4 +1,45 @@
-.carouselimage {
+/* .carouselimage {
   width: 100px;
   height:200px;
+} */
+
+.carousel{
+  width: 1000px;
+  height:500px;
+  display: block;
+  margin: auto;
 }
+
+* {
+  /* text-align: center; */
+  color:black; 
+}
+
+h4,p{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+h4{
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.nav-link{
+   padding-left: .25rem; 
+   float:none;
+  margin:auto; 
+} 
+
+ .about-nav{
+  margin-left: 100px;
+  margin:auto; 
+} 
+
+/* #header-navbar{
+  display: block;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+} */
+

@@ -2,7 +2,7 @@
 
 
 **Author**: created by Alejandro, Daniel, and Lauren 
-**Version**: 1.0.0 
+**Version**: 1.0.2 
 
 ## Overview
 [Visit our site on Netlify here](https://canbooksdb.netlify.app/)
@@ -19,14 +19,16 @@ JavaScript, React, Bootstrap, Node.js
 <li>Initial setup: 8/20/2022</li>
 <li> Add Storage: 8/20/2022</li>
 <li> Add book component: 8/20/2022 </li>
-<li> </li>
-<li>  </li>
+<li> Add post method:  8/24/2022 </li>
+<li> Add delete method: 8/24/2022</li>
 <li> </li>
 <li>  </li>
 <li> </li>
 </ul>
 
 ## Estimates
+
+### Lab 11
 Name of feature: Initial setup
 
 Estimate of time needed to complete: 2 hours
@@ -58,6 +60,30 @@ Start time: 4pm
 Finish time: 6:30pm
 
 Actual time needed to complete: 1 hour and 15 minutes
+######################################################
+
+### Lab 12
+
+Name of feature: Add Post method
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 9:00pm-10:00pm, 6:45pm -7:20pm
+
+Finish time: 7:20pm 
+
+Actual time needed to complete: 1 hour and 35 minutes
+######################################################
+
+Name of feature: Add Delete method
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 7:20pm 
+
+Finish time: 7:40pm
+
+Actual time needed to complete: 20 minutes
 ######################################################
 
 ## Collaborations
@@ -98,14 +124,18 @@ Daniel: talking through code and collaborating as a team
 Lauren: talking through code and collaborating as a team
 
 Knowing that every person in your team needs to understand the code, how do you plan to approach the day-to-day development?
+
 We will be sure that everyone understands what we are doing and that we are using the driving/steering collaboration model via Code Fellows.
 
 ## Conflict Resolution
 What will your team do if one person is pulling all the weight while the other person is not contributing?
+
 We resuse to let this happen, we will take turns, if we cannot confront each other in a safe team space, then we will ask for help via the instructor.
 
 What will your team do if one person is taking over the project and not letting the other member contribute?
+
 We resuse to let this happen, we will take turns, if we cannot confront each other in a safe team space, then we will ask for help via the instructor.
 
 How will you approach each other and the challenge of building an application knowing that it is impossible for two people to be at the exact same place in understanding and skill level?
+
 Patience and explaining things and requesting that team members identify when they have questions, since we know that this will have a big impact on the final project.
