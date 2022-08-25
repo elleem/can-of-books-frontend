@@ -3,6 +3,7 @@ import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import BookFormModal from "./BookFormModal";
+import Button from "react-bootstrap/Button";
 
 
 
@@ -92,29 +93,32 @@ class BestBooks extends React.Component {
 
     return (
       <Container>
-      <button onClick={() => this.setState({ showForm: true })}>Add a New Book</button>
+      <Button variant="primary" onClick={() => this.setState({ showForm: true })}>Add a New Book</Button>
       {this.state.showForm && <BookFormModal 
       handleCreateBook={this.handleCreateBook} 
       closeModal={this.closeModal}
       showModal={this.showModal}
       />}
-      <Carousel>
+      <Carousel className="carousel">
         
         {this.state.books.length ? (
           this.state.books.map((book) => (
             <Carousel.Item key={book._id}>
               <img
                 className="cad-block w-100"
-                src="/images/1.jpg"
+                src="/images/2.jpg"
                 alt="book1"
-                width={500} height={500}
+                width={200} height={400}
               />
-              <Carousel.Caption>
+              <Carousel.Caption >
                 <>
-                  <p>title {book.title}</p>
-                  <p>description {book.description}</p>
-                  <p>status {book.status}</p>
-                  <button onClick={() => this.handleDeleteBook(book)}>Delete this book!</button>
+                <h4>Title</h4>
+                  <p>{book.title}</p>
+                  <h4>Description </h4>
+                  <p>{book.description}</p>
+                  <h4>Status</h4>
+                  <p>{book.status}</p>
+                  <Button variant="primary" onClick={() => this.handleDeleteBook(book)}>Delete this book!</Button>
                 </>
               </Carousel.Caption>
             </Carousel.Item>

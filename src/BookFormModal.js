@@ -14,6 +14,7 @@ class BookFormModal extends React.Component {
     };
     console.log("Here is our NEW Book: ", newBook);
     this.props.handleCreateBook(newBook);
+    this.props.closeModal(); 
   };
 
   render() {
@@ -39,10 +40,14 @@ class BookFormModal extends React.Component {
             </Form.Group>
 
             <Form.Group controlId="formStatus">
-              <Form.Check type="checkbox" label="Finished?" />
+              <Form.Label>Status of the book</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="status of the book."
+              />
             </Form.Group>
             <Modal.Footer>
-              <Button type="submit">Add a book!</Button>
+              <Button variant="primary" type="submit">Add a book!</Button>
             </Modal.Footer>
           </Form>
         </Modal>
