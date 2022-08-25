@@ -62,7 +62,30 @@ class BestBooks extends React.Component {
   showModal = () => {
     this.setState({showForm: true}); 
   }
+  
+  handleDeleteBook = async (bookToBeDeleted) => {
+    try {
 
+      const proceed = window.confirm(`Do you wish to delete ${bookToBeDeleted.title}?`)
+
+      if (proceed) {
+        const config = {
+          method: 'delete', 
+          baseURL: process.env.REACT_APP_SERVER,
+          url: `/books/${bookToBeDeleted._id}?queryParam=value`
+        };
+        
+        const response = await axios(config);
+        console.log(response.data);
+        const newBooksArray = this.state.books.filter(book => book._id !== bookToBeDeleted._id);
+        this.setState({ books: newBooksArray });
+      }
+    } catch(error) {
+      console.error('Error is in the App.js in the deleteBook Function: ', error);
+      // axios sends more info about the error in a response object on the error
+      this.setState({ errorMessage: `Status Code ${error.response.status}: ${error.response.data}`});
+    }
+  }
 
   render() {
     /* TODO: render all the books in a Carousel */
@@ -91,6 +114,7 @@ class BestBooks extends React.Component {
                   <p>title {book.title}</p>
                   <p>description {book.description}</p>
                   <p>status {book.status}</p>
+                  <button onClick={() => this.handleDeleteBook(book)}>Delete this book!</button>
                 </>
               </Carousel.Caption>
             </Carousel.Item>
