@@ -22,7 +22,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "get", // get is default behavior
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: "/books",
       };
 
@@ -42,7 +42,7 @@ class BestBooks extends React.Component {
     try{
       const config = {
         method: 'post',
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: '/books',
         data: createBook
       };
@@ -72,7 +72,7 @@ class BestBooks extends React.Component {
       if (proceed) {
         const config = {
           method: 'delete', 
-          baseURL: process.env.REACT_APP_SERVER,
+          baseURL: process.env.REACT_APP_HEROKU,
           url: `/books/${bookToBeDeleted._id}?queryParam=value`
         };
         
@@ -93,7 +93,7 @@ class BestBooks extends React.Component {
 
     return (
       <Container>
-      <Button variant="primary" onClick={() => this.setState({ showForm: true })}>Add a New Book</Button>
+      <Button id="bookbutton" style = {{marginLeft: '3.5rem'}} variant="primary" onClick={() => this.setState({ showForm: true })}>Add a New Book</Button>
       {this.state.showForm && <BookFormModal 
       handleCreateBook={this.handleCreateBook} 
       closeModal={this.closeModal}
@@ -106,7 +106,7 @@ class BestBooks extends React.Component {
             <Carousel.Item key={book._id}>
               <img
                 className="cad-block w-100"
-                src="/images/2.jpg"
+                src="/images/4.jpg"
                 alt="book1"
                 width={200} height={400}
               />
