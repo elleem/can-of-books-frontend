@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
+import BookFormModal from "./BookFormModal";
 
 
 
@@ -20,7 +21,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "get", // get is default behavior
-        baseURL: process.env.REACT_APP_HEROKU,
+        baseURL: process.env.REACT_APP_SERVER,
         url: "/books",
       };
 
@@ -40,7 +41,7 @@ class BestBooks extends React.Component {
     try{
       const config = {
         method: 'post',
-        baseURL: process.env.REACT_APP_HEROKU,
+        baseURL: process.env.REACT_APP_SERVER,
         url: '/books',
         data: createBook
       };
@@ -53,6 +54,15 @@ class BestBooks extends React.Component {
       this.setState({ errorMessage: `Status Code ${error.response.status}: ${error.response.data}`});
     }
   }
+  
+  closeModal = () => {
+    this.setState({showForm: false}); 
+  }
+
+  showModal = () => {
+    this.setState({showForm: true}); 
+  }
+
 
   render() {
     /* TODO: render all the books in a Carousel */
@@ -60,6 +70,11 @@ class BestBooks extends React.Component {
     return (
       <Container>
       <button onClick={() => this.setState({ showForm: true })}>Add a New Book</button>
+      {this.state.showForm && <BookFormModal 
+      handleCreateBook={this.handleCreateBook} 
+      closeModal={this.closeModal}
+      showModal={this.showModal}
+      />}
       <Carousel>
         
         {this.state.books.length ? (
