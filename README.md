@@ -2,7 +2,7 @@
 
 
 **Author**: created by Alejandro, Daniel, and Lauren 
-**Version**: 1.0.2 
+**Version**: 1.0.3
 
 ## Overview
 [Visit our site on Netlify here](https://canbooksdb.netlify.app/)
@@ -20,8 +20,8 @@ JavaScript, React, Bootstrap, Node.js
 <li> Add Storage: 8/20/2022</li>
 <li> Add book component: 8/20/2022 </li>
 <li> Add post method:  8/24/2022 </li>
-<li> Add delete method: 8/24/2022</li>
-<li> </li>
+<li> Add delete method: 8/24/2022 </li>
+<li> Add put method: 8/27/2022 </li></li>
 <li>  </li>
 <li> </li>
 </ul>
@@ -84,6 +84,19 @@ Start time: 7:20pm
 Finish time: 7:40pm
 
 Actual time needed to complete: 20 minutes
+######################################################
+
+### Lab 13
+
+Name of feature: Add update method
+
+Estimate of time needed to complete: 4 hours
+
+Start time: 2:00pm 
+
+Finish time: 5:45pm
+
+Actual time needed to complete: 3 hours and 45 minutes
 ######################################################
 
 ## Collaborations

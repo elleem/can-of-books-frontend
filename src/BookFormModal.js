@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import Modal from "react-bootstrap/Modal";
 
 class BookFormModal extends React.Component {
+
+
   onSubmit = (event) => {
     event.preventDefault();
     const newBook = {
@@ -22,10 +24,12 @@ class BookFormModal extends React.Component {
       <Container>
         <Modal show={this.props.showModal} onHide={this.props.handleClose} animation={false}>
         <Modal.Header closeButton onClick= {this.props.closeModal}/>
-          <Form onSubmit={this.onSubmit}>
+        <Modal.Title style={{textAlign:"center"}}>Add your book</Modal.Title>
+          <Form onSubmit={this.onSubmit} style={{paddingLeft:".5rem", paddingRight:".5rem", textAlign:"center"}}>
             <Form.Group controlId="formTitle">
               <Form.Label>Book's Title</Form.Label>
               <Form.Control
+              style={{width:"auto", marginLeft:"30%", marginRight:"30%"}}
                 type="text"
                 placeholder="book's title goes here..."
               />
@@ -34,14 +38,16 @@ class BookFormModal extends React.Component {
             <Form.Group controlId="formDescription">
               <Form.Label>Description of the book</Form.Label>
               <Form.Control
+              style={{width:"auto", marginLeft:"30%", marginRight:"30%"}}
                 type="text"
                 placeholder="book's synopsis goes here."
               />
             </Form.Group>
 
-            <Form.Group controlId="formStatus">
+            <Form.Group controlId="formStatus" >
               <Form.Label>Status of the book</Form.Label>
               <Form.Control
+              style={{width:"auto", marginLeft:"30%", marginRight:"30%"}}
                 type="text"
                 placeholder="status of the book."
               />
@@ -55,5 +61,7 @@ class BookFormModal extends React.Component {
     );
   }
 }
+
+
 
 export default BookFormModal;
