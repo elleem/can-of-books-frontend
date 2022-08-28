@@ -21,7 +21,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "get", // get is default behavior
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: "/books",
       };
 
@@ -43,7 +43,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "post",
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: "/books",
         data: createBook,
       };
@@ -84,7 +84,7 @@ class BestBooks extends React.Component {
       if (proceed) {
         const config = {
           method: "delete",
-          baseURL: process.env.REACT_APP_SERVER,
+          baseURL: process.env.REACT_APP_HEROKU,
           url: `/books/${bookToBeDeleted._id}?queryParam=value`,
         };
 
@@ -121,7 +121,7 @@ class BestBooks extends React.Component {
       console.log("updatedbook", updatedBook); 
       console.log("books variable", updateBook); 
       await axios.put(
-        `${process.env.REACT_APP_SERVER}/books/${updateBook._id}`,
+        `${process.env.REACT_APP_HEROKU}/books/${updateBook._id}`,
         updateBook
       );
     } catch (error) {
