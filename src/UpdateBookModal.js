@@ -29,6 +29,7 @@ class UpdateBookModal extends React.Component {
   handleStatusChange = (e) => this.setState({ status: e.target.value });
 
   render() {
+    console.log(this.props);
     return (
       <Container>
         <Modal show={this.props.showUpdateModal} animation={false}>
@@ -41,6 +42,7 @@ class UpdateBookModal extends React.Component {
                 type="string"
                 placeholder={this.props.book.title}
                 onChange={this.handleTitleChange}
+                defaultValue={this.props.book.title}
               />
             </Form.Group>
 
@@ -50,7 +52,7 @@ class UpdateBookModal extends React.Component {
                 type="string"
                 placeholder={this.props.book.description}
                 onChange={this.handleDescriptionChange}
-                // value={this.props.description}
+                defaultValue={this.props.book.description}
               />
             </Form.Group>
 
@@ -60,7 +62,7 @@ class UpdateBookModal extends React.Component {
                 type="string"
                 placeholder={this.props.book.status}
                 onChange={this.handleStatusChange}
-                // value={this.props.status}
+                defaultValue={this.props.book.status}
               />
             </Form.Group>
             <Modal.Footer>

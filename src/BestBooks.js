@@ -21,7 +21,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "get", // get is default behavior
-        baseURL: process.env.REACT_APP_HEROKU,
+        baseURL: process.env.HEROKU,
         url: "/books",
       };
 
@@ -43,7 +43,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "post",
-        baseURL: process.env.REACT_APP_HEROKU,
+        baseURL: process.env.HEROKU,
         url: "/books",
         data: createBook,
       };
@@ -84,7 +84,7 @@ class BestBooks extends React.Component {
       if (proceed) {
         const config = {
           method: "delete",
-          baseURL: process.env.REACT_APP_HEROKU,
+          baseURL: process.env.HEROKU,
           url: `/books/${bookToBeDeleted._id}?queryParam=value`,
         };
 
@@ -121,7 +121,7 @@ class BestBooks extends React.Component {
       console.log("updatedbook", updatedBook); 
       console.log("books variable", updateBook); 
       await axios.put(
-        `${process.env.REACT_APP_HEROKU}/books/${updateBook._id}`,
+        `${process.env.HEROKU}/books/${updateBook._id}`,
         updateBook
       );
     } catch (error) {
@@ -148,7 +148,14 @@ class BestBooks extends React.Component {
             showModal={this.showModal}
           />
         )}
-
+                  {this.state.updateForm && (
+                      <UpdateBookModal
+                        book={this.state.book}
+                        handleUpdateBook={this.handleUpdateBook}
+                        closeUpdateModal={this.closeUpdateModal}
+                        showUpdateModal={this.showUpdateModal}
+                      />
+                    )}
         <Carousel className="carousel">
           {this.state.books.length ? (
             this.state.books.map((book) => (
@@ -178,18 +185,10 @@ class BestBooks extends React.Component {
                       id="updatebutton"
                       style={{ marginLeft: "4rem" }}
                       variant="primary"
-                      onClick={() => this.setState({ updateForm: true })}
+                      onClick={() => this.setState({ updateForm: true, book: book})}
                     >
                       Edit a book entry
                     </Button>
-                    {this.state.updateForm && (
-                      <UpdateBookModal
-                        book={book}
-                        handleUpdateBook={this.handleUpdateBook}
-                        closeUpdateModal={this.closeUpdateModal}
-                        showUpdateModal={this.showUpdateModal}
-                      />
-                    )}
                   </>
                 </Carousel.Caption>
               </Carousel.Item>

@@ -15,6 +15,10 @@
   color:black; 
 }
 
+.main {
+  min-height: calc(100vh - 170px);
+}
+
 h4,p{
   font-size: 1.25rem;
   font-weight: bold;
@@ -25,16 +29,20 @@ h4{
   font-weight: bolder;
 }
 
-.nav-link{
-   padding-left: .25rem; 
-   float:none;
-  margin:auto; 
+.nav-link:hover{
+   color:lightblue;
 } 
 
  .about-nav{
   margin-left: 100px;
   margin:auto; 
 } 
+
+#bookbutton {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 
 /* #header-navbar{
   display: block;
