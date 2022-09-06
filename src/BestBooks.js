@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import BookFormModal from "./BookFormModal";
 import Button from "react-bootstrap/Button";
 import UpdateBookModal from "./UpdateBookModal";
+import {withAuth0} from '@auth0/auth0-react'; 
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -17,17 +18,47 @@ class BestBooks extends React.Component {
     };
   }
   
-  componentDidMount = async () => {
-    try {
-      const config = {
-        method: "get", // get is default behavior
-        baseURL: process.env.REACT_APP_SERVER,
-        url: "/books",
-      };
+  // componentDidMount = async () => {
+  //   try {
+  //     const config = {
+  //       method: "get", // get is default behavior
+  //       baseURL: process.env.REACT_APP_SERVER,
+  //       url: "/books",
+  //     };
 
-      const response = await axios(config);
-      console.log(response.data);
-      this.setState({ books: response.data });
+  //     const response = await axios(config);
+  //     console.log(response.data);
+  //     this.setState({ books: response.data });
+  //   } catch (error) {
+  //     console.error(
+  //       "Error is in the componentDidMount Function: ",
+  //       error.response
+  //     );
+  //     this.setState({
+  //       errorMessage: `Status Code ${error.response.status}: ${error.response.data}`,
+  //     });
+  //   }
+  // };
+
+  componentDidMount = async() => {
+    if(this.props.auth0.isAuthenticated){
+      const res = await this.props.auth0.getIdTokenClaims(); 
+      const jwt = res.__raw; 
+  
+  
+      console.log('token: ', jwt); 
+  
+      const config = {
+        headers: {"Authorization": `Bearer ${jwt}`},
+        method: 'get', 
+        baseURL: process.env.REACT_APP_SERVER,
+        url: '/books'
+      }
+    try{
+      const booksResponse = await axios(config); 
+      
+      console.log("Books from DB: ", booksResponse.data); 
+      this.setState({books: booksResponse.data}); 
     } catch (error) {
       console.error(
         "Error is in the componentDidMount Function: ",
@@ -37,7 +68,8 @@ class BestBooks extends React.Component {
         errorMessage: `Status Code ${error.response.status}: ${error.response.data}`,
       });
     }
-  };
+  }
+}
 
   handleCreateBook = async (createBook) => {
     try {
@@ -204,4 +236,5 @@ class BestBooks extends React.Component {
   }
 }
 
-export default BestBooks;
+
+export default withAuth0(BestBooks);

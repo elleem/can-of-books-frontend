@@ -21,22 +21,21 @@ class App extends React.Component {
   render() {
     return (
       <>
-      {this.props.auth0.isAuthenticated ?
-      <>
-      <Logout/>
-      <Profile/>
-      <Content/>
-      </>
-      :
-        <Login/>
-      }
+     
         
         <Router>
           <Header />
           <Routes>
             <Route 
               exact path="/"
-              element={<BestBooks />}
+              element={ this.props.auth0.isAuthenticated ? 
+              <>
+              <Logout/>
+              <Profile/>
+              <BestBooks/>
+              </>
+              : 
+              <Login/>}
             >
             </Route>
             <Route
