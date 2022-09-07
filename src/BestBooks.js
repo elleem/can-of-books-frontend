@@ -23,8 +23,7 @@ class BestBooks extends React.Component {
     if(this.props.auth0.isAuthenticated){
       const res = await this.props.auth0.getIdTokenClaims(); 
       const jwt = res.__raw; 
-  
-  
+
       console.log('token: ', jwt); 
   
       const config = {
@@ -51,13 +50,21 @@ class BestBooks extends React.Component {
 }
 
   handleCreateBook = async (createBook) => {
-    try {
+    if(this.props.auth0.isAuthenticated){
+      const res = await this.props.auth0.getIdTokenClaims(); 
+      const jwt = res.__raw; 
+  
+  
+      console.log('token: ', jwt); 
+  
       const config = {
-        method: "post",
+        headers: {"Authorization": `Bearer ${jwt}`},
+        method: 'post', 
         baseURL: process.env.REACT_APP_HEROKU,
-        url: "/books",
+        url: '/books',
         data: createBook,
-      };
+      }
+    try {
       const response = await axios(config);
       console.log(response.data);
       this.setState({ books: [...this.state.books, response.data] });
@@ -67,6 +74,7 @@ class BestBooks extends React.Component {
       this.setState({
         errorMessage: `Status Code ${error.response.status}: ${error.response.data}`,
       });
+    }
     }
   };
 
@@ -89,24 +97,26 @@ class BestBooks extends React.Component {
   handleDeleteBook = async (bookToBeDeleted) => {
     try {
       const proceed = window.confirm(
-        `Do you wish to delete ${bookToBeDeleted.title}?`
-      );
+        `Do you wish to delete ${bookToBeDeleted.title}?`)
+      if (proceed && this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+  
+        // leave this console here in order to grab your token for backend testing in Thunder Client
+        console.log('token: ', jwt);
 
-      if (proceed) {
         const config = {
+          headers: {"Authorization": `Bearer ${jwt}`},
           method: "delete",
           baseURL: process.env.REACT_APP_HEROKU,
-          url: `/books/${bookToBeDeleted._id}?queryParam=value`,
+          url: `/books/${bookToBeDeleted._id}`,
         };
-
-        const response = await axios(config);
-        console.log(response.data);
         const newBooksArray = this.state.books.filter(
           (book) => book._id !== bookToBeDeleted._id
         );
         this.setState({ books: newBooksArray });
-      }
-    } catch (error) {
+        await axios(config);
+      }} catch (error) {
       console.error(
         "Error is in the App.js in the deleteBook Function: ",
         error
@@ -117,9 +127,23 @@ class BestBooks extends React.Component {
     }
   };
 
-  handleUpdateBook = async (updateBook) => {
+  handleUpdateBook = async (updatedBook) => {
+    if (this.props.auth0.isAuthenticated) {
+      const res = await this.props.auth0.getIdTokenClaims();
+      const jwt = res.__raw;
+
+      console.log('token: ', jwt);
+      const config = {
+        headers: { "Authorization": `Bearer ${jwt}` },
+        method: "put",
+        baseURL: process.env.REACT_APP_HEROKU,
+        url: `/books/${updatedBook._id}`,
+        data: updatedBook
+      };
+
+      const updateBook =await axios(config); 
     try {
-      const updatedBook = this.state.books.map((existingBook) => {
+      const updatedBooks = this.state.books.map((existingBook) => {
         if (existingBook._id === updateBook._id) {
           return updateBook;
         } else {
@@ -127,16 +151,13 @@ class BestBooks extends React.Component {
         }
       });
       this.setState({
-        books: updatedBook,
+        books: updatedBooks,
       });
-      console.log("updatedbook", updatedBook); 
+      console.log("updatedbook", updatedBooks); 
       console.log("books variable", updateBook); 
-      await axios.put(
-        `${process.env.REACT_APP_HEROKU}/books/${updateBook._id}`,
-        updateBook
-      );
     } catch (error) {
       console.error("error in the handleCreateBook function: ", error);
+    }
     }
   };
 
