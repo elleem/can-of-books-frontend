@@ -7,7 +7,7 @@ import BestBooks from './BestBooks';
 import Login from './Login'; 
 import Logout from './Logout'; 
 import Profile from './Profile'; 
-import Content from './Content'; 
+import Welcome from './Welcome'; 
 import './App.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,7 +35,10 @@ class App extends React.Component {
               <BestBooks/>
               </>
               : 
-              <Login/>}
+              <>
+              <Login/>
+            <Welcome/>
+            </>}
             >
             </Route>
             <Route

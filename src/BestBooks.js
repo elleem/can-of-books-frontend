@@ -18,27 +18,6 @@ class BestBooks extends React.Component {
     };
   }
   
-  // componentDidMount = async () => {
-  //   try {
-  //     const config = {
-  //       method: "get", // get is default behavior
-  //       baseURL: process.env.REACT_APP_SERVER,
-  //       url: "/books",
-  //     };
-
-  //     const response = await axios(config);
-  //     console.log(response.data);
-  //     this.setState({ books: response.data });
-  //   } catch (error) {
-  //     console.error(
-  //       "Error is in the componentDidMount Function: ",
-  //       error.response
-  //     );
-  //     this.setState({
-  //       errorMessage: `Status Code ${error.response.status}: ${error.response.data}`,
-  //     });
-  //   }
-  // };
 
   componentDidMount = async() => {
     if(this.props.auth0.isAuthenticated){
@@ -51,7 +30,7 @@ class BestBooks extends React.Component {
       const config = {
         headers: {"Authorization": `Bearer ${jwt}`},
         method: 'get', 
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: '/books'
       }
     try{
@@ -75,7 +54,7 @@ class BestBooks extends React.Component {
     try {
       const config = {
         method: "post",
-        baseURL: process.env.REACT_APP_SERVER,
+        baseURL: process.env.REACT_APP_HEROKU,
         url: "/books",
         data: createBook,
       };
@@ -116,7 +95,7 @@ class BestBooks extends React.Component {
       if (proceed) {
         const config = {
           method: "delete",
-          baseURL: process.env.REACT_APP_SERVER,
+          baseURL: process.env.REACT_APP_HEROKU,
           url: `/books/${bookToBeDeleted._id}?queryParam=value`,
         };
 
@@ -153,7 +132,7 @@ class BestBooks extends React.Component {
       console.log("updatedbook", updatedBook); 
       console.log("books variable", updateBook); 
       await axios.put(
-        `${process.env.REACT_APP_SERVER}/books/${updateBook._id}`,
+        `${process.env.REACT_APP_HEROKU}/books/${updateBook._id}`,
         updateBook
       );
     } catch (error) {
