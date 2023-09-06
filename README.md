@@ -156,11 +156,11 @@ We will be sure that everyone understands what we are doing and that we are usin
 ## Conflict Resolution
 What will your team do if one person is pulling all the weight while the other person is not contributing?
 
-We resuse to let this happen, we will take turns, if we cannot confront each other in a safe team space, then we will ask for help via the instructor.
+We refuse to let this happen, we will take turns, if we cannot confront each other in a safe team space, then we will ask for help via the instructor.
 
 What will your team do if one person is taking over the project and not letting the other member contribute?
 
-We resuse to let this happen, we will take turns, if we cannot confront each other in a safe team space, then we will ask for help via the instructor.
+We refuse to let this happen, we will take turns, if we cannot confront each other in a safe team space, then we will ask for help via the instructor.
 
 How will you approach each other and the challenge of building an application knowing that it is impossible for two people to be at the exact same place in understanding and skill level?
 
