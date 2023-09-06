@@ -38,6 +38,7 @@ Start time: 1pm
 Finish time: 2pm
 
 Actual time needed to complete: 1 hour
+
 ######################################################
 
 Name of feature: Add Storage
@@ -49,6 +50,7 @@ Start time: 2pm
 Finish time: 4pm
 
 Actual time needed to complete: 2 hours
+
 ######################################################
 
 Name of feature: Add book component
@@ -60,6 +62,7 @@ Start time: 4pm
 Finish time: 6:30pm
 
 Actual time needed to complete: 1 hour and 15 minutes
+
 ######################################################
 
 ### Lab 12
@@ -73,6 +76,7 @@ Start time: 9:00pm-10:00pm, 6:45pm -7:20pm
 Finish time: 7:20pm 
 
 Actual time needed to complete: 1 hour and 35 minutes
+
 ######################################################
 
 Name of feature: Add Delete method
@@ -84,6 +88,7 @@ Start time: 7:20pm
 Finish time: 7:40pm
 
 Actual time needed to complete: 20 minutes
+
 ######################################################
 
 ### Lab 13
@@ -97,6 +102,7 @@ Start time: 2:00pm
 Finish time: 5:45pm
 
 Actual time needed to complete: 3 hours and 45 minutes
+
 ######################################################
 
 ### Lab 15
@@ -110,6 +116,7 @@ Start time: 10:00pm to 11:00pm, 2:00pm to 3:10pm, 5:30pm to 6:00pm
 Finish time: 6:00pm
 
 Actual time needed to complete: 2 hours, 40 minutes
+
 ######################################################
 
 ## Collaborations
